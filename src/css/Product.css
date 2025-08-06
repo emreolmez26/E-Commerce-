@@ -1,0 +1,27 @@
+.product-image{
+    width: 160px;
+    height: 230px;
+}
+.card {
+    width: 200px;
+    height: 390px;  
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+}
+.card:hover {
+    transform: translateY(-10px);
+    transition: 0.3s ease;
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+.detail-button {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color:antiquewhite;
+}
+.detail-button:hover {
+    background-color: #f0e68c;
+    transition: 0.3s ease;
+    cursor: pointer;
+}

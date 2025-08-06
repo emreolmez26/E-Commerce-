@@ -1,0 +1,25 @@
+.logo{
+    width: 60px;
+    height: 60px;
+
+}
+.logo-text {
+    font-size: 15px;
+    font-family: arial;
+    font-weight: 600;
+}
+.input-text {
+    border-bottom: 1px solid #ccc;
+    border: none;
+    padding: 5px 10px;
+    outline: none;
+    margin-top: 10px;
+}
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.icon:hover {
+    cursor: pointer;
+}
