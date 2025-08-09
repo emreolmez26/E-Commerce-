@@ -1,4 +1,4 @@
-import React, { use } from 'react'
+import React from 'react'
 import '../css/Header.css'; // Importing the CSS file for styling
 import { CiShoppingBasket } from "react-icons/ci";
 import { CiLight } from "react-icons/ci";
@@ -7,6 +7,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import Badge from '@mui/material/Badge';
 import { useSelector } from 'react-redux'; // Import useSelector to access Redux state
+import { useDispatch } from 'react-redux'; // Import useDispatch to dispatch actions
+import { basketSlice } from '../redux/slices/basketSlices'; // Importing the basket slice for actions
 
 
 
@@ -14,6 +16,8 @@ function Header() {
 
     const [theme, setTheme] = useState(false);
     const {products} = useSelector((store) => store.basket); // storeun içinden sepeti alıyoruz
+    const dispatch = useDispatch(); // Dispatch function to access Redux store
+    const {setDrawer} = basketSlice.actions;
 
 
     const navigate = useNavigate();
@@ -43,7 +47,7 @@ function Header() {
             <input type="text" className='input-text' placeholder='Bir şeyler ara..'/>
             <div>
                 {theme ? <FaMoon className='icon' onClick={changeTheme}/> : <CiLight className='icon' onClick={changeTheme}/>}
-                    <Badge  badgeContent={products.length} color="error">
+                    <Badge onClick={() => dispatch(setDrawer())} badgeContent={products.length} color="error">
                        <CiShoppingBasket  className='icon'/>
                     </Badge>
             </div>

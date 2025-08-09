@@ -1,3 +1,4 @@
+import { drawerClasses } from '@mui/material/Drawer';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 const getBasketFromStorage = () => { //localStorage'dan sepeti alma fonksiyonu
@@ -9,8 +10,7 @@ const getBasketFromStorage = () => { //localStorage'dan sepeti alma fonksiyonu
 
 const initialState = { // Sepet başlangıç durumu
   products: getBasketFromStorage(), // Sepetteki ürünler
-
-
+  drawer: false
 }
 
 const writeBasketToLocalStorage = (basket) => { //sepetteki ürünleri localStorage'a yazma fonksiyonu
@@ -35,10 +35,13 @@ export const basketSlice = createSlice({
             state.products = [...state.products, {...action.payload}] // Ürünü sepete ekle ve miktarını 1 olarak ayarla
             writeBasketToLocalStorage(state.products); // Sepeti güncel localStorage'a yaz
         }
-  } 
-}}
-  ,)
+    },
+    setDrawer: (state) => {
+        state.drawer = !state.drawer;
+    } 
+  }
+})
 
-export const { addToBasket } = basketSlice.actions
+export const { addToBasket, setDrawer } = basketSlice.actions
 
 export default basketSlice.reducer
